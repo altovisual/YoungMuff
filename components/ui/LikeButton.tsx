@@ -10,6 +10,7 @@ interface LikeButtonProps {
   trackId: string;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
+  showParticles?: boolean;
   style?: React.CSSProperties;
 }
 
