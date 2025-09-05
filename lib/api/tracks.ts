@@ -2,7 +2,7 @@ import { Track } from '@/lib/stores/player-store';
 
 export async function getTracks(): Promise<Track[]> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/tracks`, {
+    const response = await fetch('/api/tracks', {
       next: { revalidate: 3600 }, // Revalidar cada hora
     });
 
@@ -20,7 +20,7 @@ export async function getTracks(): Promise<Track[]> {
 
 export async function getTrack(id: string): Promise<Track | null> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/tracks`, {
+    const response = await fetch('/api/tracks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
