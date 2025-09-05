@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // En producción, esto debería estar en variables de entorno
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VAPID_PRIVATE_KEY = 'your-vapid-private-key';
 const VAPID_PUBLIC_KEY = 'BEl62iUYgUivxIkv69yViEuiBIa40HI80NM9f4LiKiOOUkv4xaQAGSQ4RD7hJKs6c4hpgd-QFXBCVMn6G9Ry7nE';
 
@@ -19,7 +20,6 @@ export async function POST(request: NextRequest) {
     }
 
     // Guardar suscripción (en producción, guardar en base de datos)
-    const subscriptionKey = subscription.endpoint;
     subscriptions.add(JSON.stringify({
       subscription,
       userAgent,

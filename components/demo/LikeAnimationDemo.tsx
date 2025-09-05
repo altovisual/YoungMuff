@@ -19,7 +19,7 @@ const LikeAnimationDemo = () => {
   return (
     <div className="bg-fondo rounded-lg p-8 text-center">
       <h3 className="text-xl font-bold text-white mb-4">
-        ¡Prueba la animación de "Me Gusta"!
+        ¡Prueba la animación de &quot;Me Gusta&quot;!
       </h3>
       
       <p className="text-grey mb-6">
@@ -60,7 +60,7 @@ const LikeAnimationDemo = () => {
       </div>
 
       <div className="mt-6 text-sm text-grey/70">
-        <p>Las partículas usan el logo oficial de Maiki y aparecen cada vez que das "me gusta" a una canción</p>
+        <p>Las partículas usan el logo oficial de Maiki y aparecen cada vez que das &quot;me gusta&quot; a una canción</p>
       </div>
     </div>
   );

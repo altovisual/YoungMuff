@@ -90,11 +90,12 @@ const TrackList = ({
             {/* Artwork */}
             {showArtwork && (
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-md overflow-hidden mr-3 sm:mr-4 flex-shrink-0">
-                <img
+                <Image
                   src={track.thumbnail}
                   alt={track.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  fill // Use fill to make the image cover the parent div
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Add appropriate sizes
+                  className="object-cover"
                 />
                 {isCurrentlyPlaying && (
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -118,7 +119,7 @@ const TrackList = ({
 
             {/* Duración */}
             <div className="text-grey text-xs sm:text-sm lg:text-base font-mono mr-2 sm:mr-3 hidden sm:block">
-              {track.duration}
+              {formatTime(track.duration)}
             </div>
 
             {/* Acciones */}

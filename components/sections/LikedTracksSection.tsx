@@ -29,7 +29,7 @@ const LikedTracksSection = () => {
               <Music className="w-12 h-12 text-grey mx-auto mb-4" />
               <p className="text-grey text-lg mb-2">No tienes canciones favoritas aún</p>
               <p className="text-grey/70 text-sm">
-                Dale "me gusta" a las canciones que más te gusten para verlas aquí
+                Dale &quot;me gusta&quot; a las canciones que más te gusten para verlas aquí
               </p>
             </div>
           </motion.div>

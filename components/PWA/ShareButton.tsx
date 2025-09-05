@@ -66,8 +66,7 @@ export default function ShareButton({
   };
 
   const shareToSocial = (platform: string) => {
-    const encodedTitle = encodeURIComponent(data.title);
-    const encodedText = encodeURIComponent(data.text);
+        const encodedText = encodeURIComponent(data.text);
     const encodedUrl = encodeURIComponent(data.url);
 
     const urls = {
