@@ -305,7 +305,7 @@ const usePlayerStore = create<PlayerState>()(
     }),
     {
       name: 'youngmuff-player',
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => (typeof window !== 'undefined' ? localStorage : { getItem: () => null, setItem: () => {}, removeItem: () => {} })),
       partialize: (state) => ({
         currentTrack: state.currentTrack,
         currentIndex: state.currentIndex,
