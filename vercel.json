@@ -46,7 +46,7 @@
     }
   ],
   "functions": {
-    "app/api/**/*.js": {
+    "app/api/**/*.ts": {
       "maxDuration": 10
     }
   }
