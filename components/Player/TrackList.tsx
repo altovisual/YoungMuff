@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Play, Pause, MoreHorizontal, Download } from 'lucide-react';
 import Image from 'next/image';
 import usePlayerStore, { Track } from '@/lib/stores/player-store';
-import { formatTime } from '@/lib/utils';
+import { formatTime, formatDuration } from '@/lib/utils';
 import LikeButton from '@/components/ui/LikeButton';
 
 interface TrackListProps {
@@ -119,7 +119,7 @@ const TrackList = ({
 
             {/* Duración */}
             <div className="text-grey text-xs sm:text-sm lg:text-base font-mono mr-2 sm:mr-3 hidden sm:block">
-              {formatTime(track.duration)}
+              {formatTime(formatDuration(track.duration))}
             </div>
 
             {/* Acciones */}
