@@ -1,0 +1,350 @@
+/* Responsive Design Improvements for YOUNGMUFF */
+
+/* Base responsive utilities */
+@layer utilities {
+  /* Safe area support for iOS devices */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-area-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-area-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Container improvements */
+  .container-responsive {
+    @apply w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Text responsive utilities */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  /* Spacing responsive utilities */
+  .space-responsive-x {
+    @apply space-x-2 sm:space-x-4 lg:space-x-6;
+  }
+  
+  .space-responsive-y {
+    @apply space-y-3 sm:space-y-4 lg:space-y-6;
+  }
+
+  /* Padding responsive utilities */
+  .p-responsive {
+    @apply p-3 sm:p-4 lg:p-6;
+  }
+  
+  .px-responsive {
+    @apply px-3 sm:px-4 lg:px-6;
+  }
+  
+  .py-responsive {
+    @apply py-3 sm:py-4 lg:py-6;
+  }
+
+  /* Grid responsive utilities */
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .grid-responsive-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* Button responsive utilities */
+  .btn-responsive {
+    @apply px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base lg:px-6 lg:py-3;
+  }
+}
+
+/* Component-specific responsive improvements */
+
+/* Navigation responsive */
+.navigation-mobile {
+  @apply fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-stroke;
+}
+
+.navigation-desktop {
+  @apply sticky top-0 z-40 bg-background/95 backdrop-blur-lg border-b border-stroke;
+}
+
+/* Player responsive */
+.audio-player-mobile {
+  @apply fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-t border-stroke;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.audio-player-desktop {
+  @apply fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-t border-stroke;
+}
+
+/* Track list responsive */
+.track-item-mobile {
+  @apply flex items-center p-3 rounded-lg hover:bg-fondo transition-colors cursor-pointer;
+}
+
+.track-item-desktop {
+  @apply flex items-center p-4 rounded-lg hover:bg-fondo transition-colors cursor-pointer;
+}
+
+.track-artwork-mobile {
+  @apply relative w-10 h-10 sm:w-12 sm:h-12 rounded-md overflow-hidden mr-3 flex-shrink-0;
+}
+
+.track-artwork-desktop {
+  @apply relative w-12 h-12 lg:w-14 lg:h-14 rounded-md overflow-hidden mr-4 flex-shrink-0;
+}
+
+/* Particle animation responsive */
+.particle-container-mobile {
+  @apply absolute inset-0 pointer-events-none overflow-hidden;
+  /* Reduce particle area on mobile */
+  transform: scale(0.8);
+}
+
+.particle-container-desktop {
+  @apply absolute inset-0 pointer-events-none overflow-hidden;
+}
+
+/* Like button responsive */
+.like-button-mobile {
+  @apply relative p-1.5 text-grey hover:text-white transition-colors;
+}
+
+.like-button-desktop {
+  @apply relative p-2 text-grey hover:text-white transition-colors;
+}
+
+/* PWA components responsive */
+.pwa-install-prompt-mobile {
+  @apply fixed bottom-20 left-4 right-4 bg-background/95 backdrop-blur-lg border border-stroke rounded-lg p-4 z-50;
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+.pwa-install-prompt-desktop {
+  @apply fixed bottom-6 left-6 right-6 max-w-md mx-auto bg-background/95 backdrop-blur-lg border border-stroke rounded-lg p-6 z-50;
+}
+
+/* Hero section responsive */
+.hero-section-mobile {
+  @apply relative min-h-screen flex items-center justify-center px-4 py-20;
+  padding-top: calc(4rem + env(safe-area-inset-top));
+}
+
+.hero-section-desktop {
+  @apply relative min-h-screen flex items-center justify-center px-6 py-24;
+}
+
+/* Playlist section responsive */
+.playlist-section-mobile {
+  @apply py-8 px-4;
+}
+
+.playlist-section-desktop {
+  @apply py-12 px-6 lg:py-16;
+}
+
+/* Video section responsive */
+.video-container-mobile {
+  @apply relative w-full aspect-video rounded-lg overflow-hidden;
+}
+
+.video-container-desktop {
+  @apply relative w-full aspect-video rounded-xl overflow-hidden;
+}
+
+/* Responsive breakpoints for custom components */
+@media (max-width: 640px) {
+  /* Mobile-specific styles */
+  .track-list-item {
+    @apply px-3 py-2;
+  }
+  
+  .track-title {
+    @apply text-sm font-medium;
+  }
+  
+  .track-artist {
+    @apply text-xs text-grey;
+  }
+  
+  .track-duration {
+    @apply hidden;
+  }
+  
+  .track-actions {
+    @apply space-x-1;
+  }
+  
+  .player-controls {
+    @apply space-x-2;
+  }
+  
+  .player-info {
+    @apply min-w-0 flex-1;
+  }
+  
+  .player-title {
+    @apply text-sm font-medium truncate;
+  }
+  
+  .player-artist {
+    @apply text-xs text-grey truncate;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Tablet-specific styles */
+  .track-list-item {
+    @apply px-4 py-3;
+  }
+  
+  .track-title {
+    @apply text-base font-medium;
+  }
+  
+  .track-artist {
+    @apply text-sm text-grey;
+  }
+  
+  .player-controls {
+    @apply space-x-3;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Desktop-specific styles */
+  .track-list-item {
+    @apply px-4 py-3 lg:px-6 lg:py-4;
+  }
+  
+  .track-title {
+    @apply text-base lg:text-lg font-medium;
+  }
+  
+  .track-artist {
+    @apply text-sm lg:text-base text-grey;
+  }
+  
+  .track-duration {
+    @apply block text-sm text-grey font-mono;
+  }
+  
+  .track-actions {
+    @apply space-x-2;
+  }
+  
+  .player-controls {
+    @apply space-x-4;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .track-artwork img,
+  .player-artwork img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section-mobile {
+    @apply min-h-screen py-12;
+  }
+  
+  .audio-player-mobile {
+    @apply py-2;
+  }
+  
+  .navigation-mobile {
+    @apply h-12;
+  }
+}
+
+/* Dark mode improvements */
+@media (prefers-color-scheme: dark) {
+  .track-item-hover {
+    @apply hover:bg-white/5;
+  }
+  
+  .button-hover {
+    @apply hover:bg-white/10;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .particle-animation,
+  .track-transition,
+  .player-transition {
+    @apply transition-none;
+  }
+  
+  .particle-container-mobile,
+  .particle-container-desktop {
+    display: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .track-item-mobile,
+  .track-item-desktop {
+    @apply border border-white/20;
+  }
+  
+  .button-primary {
+    @apply border-2 border-primary;
+  }
+  
+  .button-secondary {
+    @apply border-2 border-white;
+  }
+}
+
+/* Print styles */
+@media print {
+  .audio-player-mobile,
+  .audio-player-desktop,
+  .navigation-mobile,
+  .navigation-desktop,
+  .pwa-install-prompt-mobile,
+  .pwa-install-prompt-desktop {
+    @apply hidden;
+  }
+}

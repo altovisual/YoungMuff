@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0c0c0d;
+  --primary: #e91818;
+  --secondary: #f6fe5b;
+  --grey: #9f9f9f;
+  --stroke: #ffffff1a;
+  --fondo: #1d1d1e29;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+@layer components {
+  /* Responsive utilities */
+  .btn-responsive {
+    @apply px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base lg:px-6 lg:py-3;
+  }
+
+  .container-responsive {
+    @apply w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .p-responsive {
+    @apply p-3 sm:p-4 lg:p-6;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/80 text-white font-medium rounded-lg transition-colors btn-responsive;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-stroke hover:bg-fondo text-white font-medium rounded-lg transition-colors btn-responsive;
+  }
+
+  /* Container component */
+  .container-app {
+    @apply container-responsive;
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-fondo/50 backdrop-blur-sm border border-stroke rounded-lg p-responsive;
+  }
+
+  /* Input component */
+  .input {
+    @apply bg-fondo border border-stroke rounded-lg px-3 py-2 text-white placeholder-grey focus:border-primary focus:outline-none transition-colors;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  /* Text utilities */
+  .text-heading {
+    @apply text-responsive-2xl font-bold text-white;
+  }
+
+  .text-subheading {
+    @apply text-responsive-lg font-semibold text-white;
+  }
+
+  .text-body {
+    @apply text-responsive-base text-grey;
+  }
+
+  .text-caption {
+    @apply text-responsive-sm text-grey/70;
+  }
+}
+
+/* Audio player styles */
+.audio-visualizer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.audio-bar {
+  width: 3px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: audioWave 1.5s ease-in-out infinite;
+}
+
+.audio-bar:nth-child(1) { animation-delay: 0s; height: 10px; }
+.audio-bar:nth-child(2) { animation-delay: 0.1s; height: 15px; }
+.audio-bar:nth-child(3) { animation-delay: 0.2s; height: 8px; }
+.audio-bar:nth-child(4) { animation-delay: 0.3s; height: 12px; }
+
+@keyframes audioWave {
+  0%, 100% { transform: scaleY(0.5); opacity: 0.7; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--fondo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--stroke);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grey);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Pulse animation for loading states */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUNGMUFF - Sin Conexión</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0c0c0d 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: url('/images/logo.png') center/contain no-repeat;
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #e91818, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .offline-features {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .offline-features h3 {
+            color: #e91818;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.8;
+        }
+        
+        .feature-list li::before {
+            content: '🎵';
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+        
+        .retry-btn {
+            background: linear-gradient(45deg, #e91818, #ff6b35);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+        
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(233, 24, 24, 0.3);
+        }
+        
+        .home-btn {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+        
+        .home-btn:hover {
+            border-color: #e91818;
+            color: #e91818;
+        }
+        
+        .connection-status {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .offline {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            color: #ff6b35;
+        }
+        
+        .online {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.3);
+            color: #2ecc71;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .offline-container {
+                padding: 20px;
+            }
+            
+            .retry-btn, .home-btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="logo pulse"></div>
+        
+        <h1>Sin Conexión</h1>
+        
+        <p>No hay conexión a internet, pero aún puedes disfrutar de YOUNGMUFF con las funciones offline.</p>
+        
+        <div class="offline-features">
+            <h3>Disponible sin conexión:</h3>
+            <ul class="feature-list">
+                <li>Música previamente cacheada</li>
+                <li>Navegación por la app</li>
+                <li>Controles del reproductor</li>
+                <li>Contenido guardado localmente</li>
+            </ul>
+        </div>
+        
+        <div class="connection-status offline" id="connectionStatus">
+            📡 Sin conexión a internet
+        </div>
+        
+        <button class="retry-btn" onclick="checkConnection()">
+            Reintentar Conexión
+        </button>
+        
+        <button class="home-btn" onclick="goHome()">
+            Ir al Inicio
+        </button>
+    </div>
+
+    <script>
+        // Verificar estado de conexión
+        function updateConnectionStatus() {
+            const statusEl = document.getElementById('connectionStatus');
+            
+            if (navigator.onLine) {
+                statusEl.textContent = '✅ Conexión restaurada';
+                statusEl.className = 'connection-status online';
+                
+                // Redirigir automáticamente después de 2 segundos
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            } else {
+                statusEl.textContent = '📡 Sin conexión a internet';
+                statusEl.className = 'connection-status offline';
+            }
+        }
+        
+        function checkConnection() {
+            updateConnectionStatus();
+            
+            if (navigator.onLine) {
+                // Intentar cargar la página principal
+                fetch('/', { method: 'HEAD', cache: 'no-cache' })
+                    .then(() => {
+                        window.location.href = '/';
+                    })
+                    .catch(() => {
+                        console.log('Still offline');
+                    });
+            }
+        }
+        
+        function goHome() {
+            window.location.href = '/';
+        }
+        
+        // Escuchar cambios en el estado de conexión
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Verificar conexión al cargar
+        updateConnectionStatus();
+        
+        // Verificar conexión cada 30 segundos
+        setInterval(checkConnection, 30000);
+    </script>
+</body>
+</html>

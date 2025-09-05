@@ -1,0 +1,123 @@
+{
+  "name": "YOUNGMUFF - Música y Merchandise",
+  "short_name": "YOUNGMUFF",
+  "description": "Plataforma de streaming musical y merchandise de YOUNGMUFF",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0d",
+  "theme_color": "#e91818",
+  "orientation": "portrait-primary",
+  "categories": ["music", "entertainment", "shopping"],
+  "lang": "es-ES",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo-md.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo-full.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Vista móvil de YOUNGMUFF"
+    },
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Vista de escritorio de YOUNGMUFF"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Reproducir Música",
+      "short_name": "Play",
+      "description": "Comenzar a reproducir música",
+      "url": "/?action=play",
+      "icons": [
+        {
+          "src": "/images/play-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Tienda",
+      "short_name": "Shop",
+      "description": "Ver merchandise",
+      "url": "/merchandise",
+      "icons": [
+        {
+          "src": "/images/shop-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Videos",
+      "short_name": "Videos",
+      "description": "Ver videos musicales",
+      "url": "/?section=videos",
+      "icons": [
+        {
+          "src": "/images/video-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/api/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "audio",
+          "accept": ["audio/*", "video/*"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+youngmuff",
+      "url": "/?track=%s"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
+}

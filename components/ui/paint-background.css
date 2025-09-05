@@ -1,0 +1,91 @@
+/* Estilos optimizados para elfos animados */
+.paint-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  opacity: 0.7;
+  cursor: crosshair;
+  /* Optimizaciones de rendimiento */
+  will-change: auto;
+  transform: translateZ(0); /* Forzar aceleración por hardware */
+  backface-visibility: hidden;
+}
+
+/* Animación de entrada suave y optimizada */
+@keyframes elfFadeIn {
+  from {
+    opacity: 0;
+    transform: translateZ(0) scale(0.9);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateZ(0) scale(1);
+  }
+}
+
+.paint-canvas {
+  animation: elfFadeIn 0.8s ease-out;
+}
+
+/* Optimizaciones para dispositivos móviles */
+@media (max-width: 768px) {
+  .paint-canvas {
+    opacity: 0.5;
+    /* Reducir calidad en móviles para mejor rendimiento */
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+  }
+}
+
+/* Optimizaciones para dispositivos de baja potencia */
+@media (max-width: 480px) {
+  .paint-canvas {
+    opacity: 0.3;
+    /* Desactivar en dispositivos muy pequeños si es necesario */
+    display: none;
+  }
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: high) {
+  .paint-canvas {
+    opacity: 0.4;
+  }
+}
+
+/* Respeto por la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .paint-canvas {
+    animation: none;
+    opacity: 0.2;
+    /* Pausar animaciones si el usuario prefiere menos movimiento */
+    pointer-events: none;
+  }
+}
+
+/* Optimizaciones para conexiones lentas */
+@media (prefers-reduced-data: reduce) {
+  .paint-canvas {
+    opacity: 0.3;
+  }
+}
+
+/* Optimizaciones para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .paint-canvas {
+    opacity: 0.6;
+  }
+}
+
+/* Optimizaciones para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .paint-canvas {
+    /* Ajustar para pantallas retina */
+    image-rendering: -webkit-optimize-contrast;
+  }
+}

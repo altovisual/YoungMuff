@@ -1,0 +1,78 @@
+[
+  {
+    "id": "freemaiky-001",
+    "title": "FREEMAIKY",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810727/Free_Master_Video_48x24_V3_t4f0eu.wav",
+    "r2Url": "audio/freemaiky.wav",
+    "duration": "3:14",
+    "genre": "R&B",
+    "thumbnail": "images/Recurso-5saint.png",
+    "downloadable": true
+  },
+  {
+    "id": "viernes-002",
+    "title": "VIERNES",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810255/01_VIERNES_czpf4b.mp3",
+    "r2Url": "audio/viernes.mp3",
+    "duration": "3:14",
+    "genre": "R&B",
+    "thumbnail": "images/muff144.jpg",
+    "downloadable": true
+  },
+  {
+    "id": "fou-fou-003",
+    "title": "FOU FOU",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810252/12-_FOU_FOU_brc7jo.mp3",
+    "duration": "3:14",
+    "genre": "R&B",
+    "thumbnail": "images/dd.jpg"
+  },
+  {
+    "id": "sia-004",
+    "title": "SIA",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810261/13._SIA_im90kd.wav",
+    "duration": "3:14",
+    "genre": "R&B",
+    "thumbnail": "images/Grupo-3.png"
+  },
+  {
+    "id": "siri-005",
+    "title": "SIRI",
+    "artist": "YOUNGMUFF ft. Akapellah, Maiky Moves",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810252/Machine_-_SIRI_Ft_Akapellah_Maiky_Moves_Jambene%CC%81_Angelo_Reeves_-_Prod_by_Carze%CC%81_Video_Oficial_l5ye1a.mp3",
+    "duration": "3:14",
+    "genre": "R&B",
+    "thumbnail": "images/Image.jpg"
+  },
+  {
+    "id": "mientras-salgo-1-006",
+    "title": "MIENTRAS SALGO #1",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810258/Mientras_Salgo_1_tstiu1.mp3",
+    "duration": "3:14",
+    "genre": "R&B",
+    "thumbnail": "images/Ime.jpg"
+  },
+  {
+    "id": "mientras-salgo-2-007",
+    "title": "MIENTRAS SALGO #2",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810252/Mientras_Salgo_2_kcv6b7.mp3",
+    "duration": "3:14",
+    "genre": "Urban",
+    "thumbnail": "images/sss.jpg"
+  },
+  {
+    "id": "mientras-salgo-3-008",
+    "title": "MIENTRAS SALGO #3",
+    "artist": "YOUNGMUFF",
+    "audioUrl": "https://res.cloudinary.com/dt5pkdr0k/video/upload/v1739810259/Mientras_Salgo_3_z9raoa.mp3",
+    "duration": "3:14",
+    "genre": "Urban",
+    "thumbnail": "images/Ime.jpg"
+  }
+] 

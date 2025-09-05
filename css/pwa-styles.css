@@ -1,0 +1,165 @@
+/* Estilos para PWA YOUNGMUFF */
+
+/* Botón de instalación */
+.pwa-install-button {
+  background: linear-gradient(135deg, #e91818, #ff4444);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  box-shadow: 0 2px 8px rgba(233, 24, 24, 0.3);
+}
+
+.pwa-install-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 24, 24, 0.4);
+}
+
+/* Notificación de actualización */
+.update-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(12, 12, 13, 0.95);
+  border: 1px solid #e91818;
+  border-radius: 8px;
+  padding: 16px;
+  z-index: 10000;
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.3s ease;
+}
+
+.update-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 14px;
+}
+
+.update-content button {
+  background: #e91818;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.update-content button:last-child {
+  background: transparent;
+  border: 1px solid #666;
+  padding: 4px 8px;
+}
+
+/* Indicador de modo offline */
+.offline-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #ff9500;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+/* Botón de descarga offline */
+.download-offline-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.download-offline-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.download-offline-btn.downloaded {
+  background: rgba(46, 204, 113, 0.3);
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+/* Estilos para modo PWA instalada */
+.pwa-installed .navigation {
+  padding-top: env(safe-area-inset-top);
+}
+
+.pwa-installed .main-wrapper {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Responsive para PWA */
+@media (display-mode: standalone) {
+  .navigation {
+    padding-top: 20px;
+  }
+  
+  .main-wrapper {
+    min-height: 100vh;
+    padding-bottom: 20px;
+  }
+}
+
+/* Splash screen personalizada */
+@media (display-mode: standalone) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    background-image: url('../images/Maiki-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  body.loading::before {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
