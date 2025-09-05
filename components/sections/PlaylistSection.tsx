@@ -100,12 +100,13 @@ const PlaylistSection = ({ tracks }: PlaylistSectionProps) => {
                       transition={{ duration: 0.8, delay: 0.4 }}
                       className="gif-container relative"
                     >
-                      <img
+                      <Image
                         src="/images/FREEMAIKOL-FINAL.gif"
                         alt="FREEMAIKY"
                         width={180}
                         height={180}
                         className="opacity-90 rounded-xl shadow-2xl relative z-10"
+                        unoptimized // GIFs are not optimized by Next.js Image component
                       />
                     </motion.div>
                     

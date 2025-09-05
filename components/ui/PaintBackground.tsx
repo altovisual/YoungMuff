@@ -179,7 +179,7 @@ const PaintBackground = () => {
     drawParticles(ctx);
     
     animationRef.current = requestAnimationFrame(animate);
-  }, [updateParticles, drawParticles]);
+  }, [updateParticles, FRAME_TIME
 
   // Throttled mouse move handler
   const handleMouseMove = useCallback((e: MouseEvent) => {

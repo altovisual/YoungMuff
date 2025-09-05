@@ -32,7 +32,7 @@ const VolumeControl = ({ volume, onVolumeChange, className }: VolumeControlProps
   };
 
   const toggleSlider = () => {
-    setShowSlider(!showSlider);
+    handleMute();
   };
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const VolumeControl = ({ volume, onVolumeChange, className }: VolumeControlProps
   return (
     <div ref={containerRef} className={cn('flex items-center space-x-2', className)}>
       <button
-        onClick={handleMute}
+        onClick={toggleSlider}
         className="p-2 text-grey hover:text-white transition-colors"
       >
         {volume === 0 ? (
